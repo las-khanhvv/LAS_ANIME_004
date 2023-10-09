@@ -44,21 +44,26 @@ class BaseService {
                                encoding: ParameterEncoding = URLEncoding.default,
                                success: @escaping (T) -> Void,
                                failure: @escaping (_ code: Int, _ message: String) -> Void) {
-        let url = path.starts(with: "http") ? path : "\(baseURL)\(path)"
-        print("URLRequest: ", url)
-        alamofireManager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
-            .validate(statusCode: 200..<300)
-            .responseDecodable(of: T.self) { response in
-                switch response.result {
-                case let .success(data):
-                    success(data)
-                case let .failure(error):
-                    print(error.localizedDescription)
-                    let code = error.responseCode ?? 0
-                    let message = error.failureReason ?? ""
-                    failure(code, message)
+        if !BaseService.isReachable {
+            Toast.show("Network unavailble!")
+            failure(0, "Network unavailble!")
+        } else {
+            let url = path.starts(with: "http") ? path : "\(baseURL)\(path)"
+            print("URLRequest: ", url)
+            alamofireManager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+                .validate(statusCode: 200..<300)
+                .responseDecodable(of: T.self) { response in
+                    switch response.result {
+                    case let .success(data):
+                        success(data)
+                    case let .failure(error):
+                        print(error.localizedDescription)
+                        let code = error.responseCode ?? 0
+                        let message = error.failureReason ?? ""
+                        failure(code, message)
+                    }
                 }
-            }
+        }
     }
 }
 

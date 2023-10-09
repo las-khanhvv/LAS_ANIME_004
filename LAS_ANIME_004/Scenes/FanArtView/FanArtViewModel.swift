@@ -15,16 +15,63 @@ class FanArtViewModel: BaseViewModel {
         self.service = useCase
     }
     
-//    func transform(_ input: Input) -> Output {
-//        let quoteDay = input.loadTrigger
-//            .flatMapLatest { _ in
-//                return self.service.getQuoteOfDay()
-//                    .trackError(self.errorTracker)
-//                    .trackActivity(self.loading)
-//                    .asDriverOnErrorJustComplete()
-//            }
-//        return Output(quoteDay: quoteDay)
-//    }
+    func transform(_ input: Input, category: APIPath.FanArt) -> Output {
+        let fanArt = input.loadTrigger
+            .flatMapLatest { _ in
+                switch category {
+                case .gintama:
+                    return self.service.getFanArtGintama()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                    
+                case .honkai_tag:
+                    return self.service.getFanArtHonkaiTag()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .jujutsu_kaisen:
+                    return self.service.getFanArtJujutsuKaisen()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .nisekoi:
+                    return self.service.getFanArtNisekoi()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .one_piece:
+                    return self.service.getFanArtOnePiece()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .oshi_no_ko:
+                    return self.service.getFanArtOshiNoKo()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .suki_na_ko_ga_Megane_wo_Wasureta:
+                    return self.service.getFanArtSukiNaKoGa()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                case .vocaloid:
+                    return self.service.getFanArtVocaloid()
+                        .trackError(self.errorTracker)
+                        .trackActivity(self.loading)
+                        .share(replay: 1, scope: .forever)
+                        .asDriverOnErrorJustComplete()
+                }
+            }
+        return Output(fanArt: fanArt)
+    }
 }
 
 extension FanArtViewModel {
@@ -33,6 +80,6 @@ extension FanArtViewModel {
     }
     
     struct Output {
-        let quoteDay: Driver<AnimeQuoteDayModel>
+        let fanArt: Driver<FanArtModel>
     }
 }

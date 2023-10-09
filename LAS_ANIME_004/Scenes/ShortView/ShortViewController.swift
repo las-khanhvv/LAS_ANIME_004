@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SafariServices
 
 class ShortViewController: BaseViewController {
 
@@ -50,6 +51,12 @@ class ShortViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    func openYouTubeVideoInApp(withVideoID videoID: String) {
+        let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(videoID)")!
+        let safariViewController = SFSafariViewController(url: youtubeURL)
+        present(safariViewController, animated: true, completion: nil)
+    }
 }
 
 //MARK: - Extension UICollectionViewDataSource
@@ -66,23 +73,18 @@ extension ShortViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let url = animeShorts.value[indexPath.row].video
-        let webViewVC = WebViewController()
-        let newURL = "https://youtu.be/\(GithubJsonService.shared.getId(url: url))"
-        webViewVC.urlString = url
-//        let navi = UINavigationController(rootViewController: webViewVC)
-        webViewVC.modalPresentationStyle = .overFullScreen
-        self.present(webViewVC, animated: true)
+        openYouTubeVideoInApp(withVideoID: GithubService.shared.getId(url: url))
     }
 }
 
 //MARK: - Extension UICollectionViewDelegate
 extension ShortViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 20, right: 16)
+        return .init(top: 0, left: padding, bottom: 20, right: padding)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.width - 16 * columns - 14) / 2
+        let width = (UIScreen.main.bounds.width - padding * 2  - (columns - 1) * 14) / columns
         let height = width * 322 / 175
         return CGSize(width: width, height: height)
     }

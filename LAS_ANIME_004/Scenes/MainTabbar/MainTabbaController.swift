@@ -84,8 +84,9 @@ class MainTabbaController: UITabBarController {
         let quoteVM = AnimeQuoteViewModel(useCase: AnimeQuoteUseCase())
         quoteVC.viewModel = quoteVM
         
-        let artVC = addController(FanArtViewController(), .fanArt)
-        
+        let artVC = addController(FanArtViewController(), .fanArt) as! FanArtViewController
+        let artVM = FanArtViewModel(useCase: FanArtUseCase())
+        artVC.viewModel = artVM
         
         let shortVC = addController(ShortViewController(), .short) as! ShortViewController
         let shortVM = ShortViewModel(useCase: ShortUseCase())
@@ -114,6 +115,7 @@ class MainTabbaController: UITabBarController {
             item.title = caseItem.title
             item.imageInsets = UIEdgeInsets(top: -moveSpace, left: 0, bottom: 0, right: 0)
         }
+        
         controller.tabBarItem = item
         
         return controller

@@ -18,8 +18,10 @@
             <connections>
                 <outlet property="kolodaView" destination="9hH-BO-EIT" id="wNI-d5-5k9"/>
                 <outlet property="nextButton" destination="sbp-xn-7y7" id="Fq4-7t-eQf"/>
+                <outlet property="nextLabel" destination="een-3j-xAX" id="pVu-Sr-2tx"/>
                 <outlet property="nextView" destination="nb5-kU-1mT" id="wce-G3-fMF"/>
                 <outlet property="previousButton" destination="ZZo-Qn-0NE" id="75l-2i-YyV"/>
+                <outlet property="previousLabel" destination="Dfk-kD-sGx" id="pBi-0J-Bw2"/>
                 <outlet property="previousView" destination="TYW-Tf-IR4" id="1Op-TM-IGp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -46,7 +48,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYW-Tf-IR4">
-                    <rect key="frame" x="25" y="625" width="134.33333333333334" height="60"/>
+                    <rect key="frame" x="26" y="620" width="134.33333333333334" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfk-kD-sGx">
                             <rect key="frame" x="18.999999999999993" y="15" width="110.33333333333331" height="32.333333333333336"/>
@@ -81,7 +83,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb5-kU-1mT">
-                    <rect key="frame" x="262.33333333333331" y="625" width="105.66666666666669" height="60"/>
+                    <rect key="frame" x="261.33333333333331" y="620" width="105.66666666666669" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="een-3j-xAX">
                             <rect key="frame" x="5" y="15" width="81.666666666666671" height="32.333333333333336"/>
@@ -116,7 +118,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hH-BO-EIT" customClass="KolodaView" customModule="Koloda">
-                    <rect key="frame" x="24" y="124.66666666666666" width="345" height="460.33333333333337"/>
+                    <rect key="frame" x="26" y="124.66666666666666" width="341" height="455.33333333333337"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9hH-BO-EIT" secondAttribute="height" multiplier="344:459" id="ySz-bb-KRW"/>
@@ -126,20 +128,20 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="TYW-Tf-IR4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="2Nk-Mh-3VF"/>
                 <constraint firstAttribute="bottom" secondItem="R5J-BJ-ptT" secondAttribute="bottom" id="2X3-k2-bVk"/>
                 <constraint firstItem="R5J-BJ-ptT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="B8a-XL-zwl"/>
                 <constraint firstItem="8K6-fO-f6c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Btn-me-PEr"/>
                 <constraint firstItem="R5J-BJ-ptT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DAz-xc-oqX"/>
                 <constraint firstItem="8K6-fO-f6c" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Evw-Px-YlR"/>
+                <constraint firstItem="nb5-kU-1mT" firstAttribute="trailing" secondItem="9hH-BO-EIT" secondAttribute="trailing" id="OHO-rq-Frf"/>
                 <constraint firstItem="nb5-kU-1mT" firstAttribute="top" secondItem="9hH-BO-EIT" secondAttribute="bottom" constant="40" id="PMs-Ld-r00"/>
                 <constraint firstItem="9hH-BO-EIT" firstAttribute="top" secondItem="8K6-fO-f6c" secondAttribute="bottom" constant="9" id="alA-qz-zO3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nb5-kU-1mT" secondAttribute="trailing" constant="25" id="h22-L4-Rjd"/>
-                <constraint firstItem="9hH-BO-EIT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="iU8-TV-8Ml"/>
                 <constraint firstItem="TYW-Tf-IR4" firstAttribute="centerY" secondItem="nb5-kU-1mT" secondAttribute="centerY" id="jdV-WW-iMi"/>
                 <constraint firstAttribute="top" secondItem="v07-09-vdY" secondAttribute="top" constant="71" id="jxy-QG-jCE"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9hH-BO-EIT" secondAttribute="trailing" constant="24" id="kZl-EZ-LWD"/>
                 <constraint firstItem="v07-09-vdY" firstAttribute="centerX" secondItem="R5J-BJ-ptT" secondAttribute="centerX" id="l5x-Fn-e2Q"/>
+                <constraint firstItem="9hH-BO-EIT" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.6" id="nJw-Fb-L9R"/>
+                <constraint firstItem="9hH-BO-EIT" firstAttribute="centerX" secondItem="R5J-BJ-ptT" secondAttribute="centerX" id="oQD-y7-qMc"/>
+                <constraint firstItem="TYW-Tf-IR4" firstAttribute="leading" secondItem="9hH-BO-EIT" secondAttribute="leading" id="v4X-DX-wn2"/>
                 <constraint firstItem="R5J-BJ-ptT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zXN-yL-M1g"/>
             </constraints>
             <point key="canvasLocation" x="96.946564885496173" y="20.422535211267608"/>

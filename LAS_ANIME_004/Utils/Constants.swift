@@ -141,6 +141,10 @@ extension UIColor {
     static var colorD8D8D8: UIColor? {
         return UIColor(hex: "#D8D8D8")
     }
+    
+    static var colorFF491F: UIColor? {
+        return UIColor(hex: "#FF491F")
+    }
 }
 
 //MARK: UIFont

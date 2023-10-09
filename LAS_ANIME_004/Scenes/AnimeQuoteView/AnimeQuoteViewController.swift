@@ -18,6 +18,8 @@ class AnimeQuoteViewController: BaseViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousView: UIView!
     @IBOutlet weak var nextView: UIView!
+    @IBOutlet weak var nextLabel: UILabel!
+    @IBOutlet weak var previousLabel: UILabel!
     
     //MARK: - Property
     var viewModel: AnimeQuoteViewModel!
@@ -42,6 +44,9 @@ class AnimeQuoteViewController: BaseViewController {
         kolodaView.backgroundColor = .clear
         kolodaView.layer.cornerRadius = 20
         kolodaView.setShadow(offset: CGSize(width: 0, height: 6), radius: 14, color: .black, opacity: 0.14)
+        
+        nextLabel.textColor = .colorFF491F
+        previousLabel.textColor = .colorFF491F
         
     }
     

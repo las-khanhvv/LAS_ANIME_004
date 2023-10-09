@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 let columns: CGFloat = UIDevice.current.is_iPhone ? 2 : 4
-let padding: CGFloat = UIDevice.current.is_iPhone ? 10 : 40
+let padding: CGFloat = UIDevice.current.is_iPhone ? 16 : 40
 
 
 extension UIFont {

@@ -32,7 +32,7 @@ class ShortItemCell: UICollectionViewCell {
         postLabel.text = item.postTxt
         usernameLabel.text = item.username
 
-        GithubJsonService.shared.fetchYouTubeThumbnail(shortUrl: item.video) { url in
+        GithubService.shared.fetchYouTubeThumbnail(shortUrl: item.video) { url in
             guard let url = url else {
                 return
             }
